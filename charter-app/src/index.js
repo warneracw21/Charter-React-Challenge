@@ -4,9 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// Import Context Providers
+import { RestaurantContextProvider } from './store';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  	<RestaurantContextProvider>
+    	<App />
+    </RestaurantContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
