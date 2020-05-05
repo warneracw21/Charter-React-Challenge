@@ -1,24 +1,54 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+// Import methods
+import { fetchData } from './api';
+
+// Import Contexts
+import {
+  useRestaurantStoreState,
+  useRestaurantStoreDispatch
+} from './store';
+
 function App() {
+
+  ///////////////////////////////////////////////
+  // Subscribe to Contexts
+  ///////////////////////////////////////////////
+  const restaurantStoreState = useRestaurantStoreState();
+  const restaurantStoreDispatch = useRestaurantStoreDispatch();
+
+  ///////////////////////////////////////////////
+  // Fetch Data in React Effect
+  ///////////////////////////////////////////////
+  React.useEffect(() => {
+
+    // Initiate Data Transfer
+    restaurantStoreDispatch({type: "init"})
+
+    // Call Fetch Method and Update Status
+    fetchData()
+    .then(response => response.json())
+
+    // Update Status to Success
+    .then(data => {
+      restaurantStoreDispatch({
+        type: "success",
+        data: data
+      })
+    })
+
+    // Update Status to Failure
+    .catch((error) => {
+      console.log("Error:", error)
+      restaurantStoreDispatch({type: "failure"})
+    })
+
+  }, [])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
