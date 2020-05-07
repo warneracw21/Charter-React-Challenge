@@ -1,13 +1,15 @@
 import React from 'react';
-import './App.css';
+
+// Import Components
+import Table from './table';
 
 // Import methods
 import { fetchData } from './api';
 
 // Import Contexts
 import {
-  useRestaurantStoreState,
-  useRestaurantStoreDispatch
+  useRestaurantStoreDispatch,
+  useSearchInfoStoreDispatch
 } from './store';
 
 function App() {
@@ -15,7 +17,6 @@ function App() {
   ///////////////////////////////////////////////
   // Subscribe to Contexts
   ///////////////////////////////////////////////
-  const restaurantStoreState = useRestaurantStoreState();
   const restaurantStoreDispatch = useRestaurantStoreDispatch();
 
   ///////////////////////////////////////////////
@@ -32,6 +33,7 @@ function App() {
 
     // Update Status to Success
     .then(data => {
+      // Set restaurantData
       restaurantStoreDispatch({
         type: "success",
         data: data
@@ -49,6 +51,7 @@ function App() {
 
   return (
     <div className="App">
+      <Table/>
     </div>
   );
 }
