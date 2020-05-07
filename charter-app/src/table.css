@@ -1,3 +1,140 @@
-.table {
-	
+/* Container Positionings */
+#app-container {
+  width: 50%;
+  padding-left: 25%;
 }
+
+#header-container {
+  position: absolute;
+  width: 50%;
+  height: 150px;
+  background-color: #4CAF50;
+}
+
+#table-container {
+  position: absolute;
+  top: 170px;
+  width: 50%;
+}
+
+#search-bar-container {
+  position: absolute;
+  top: 10%;
+  left: 1%;
+  width: 60%;
+}
+
+#filter-container {
+  position: absolute;
+  top: 0;
+  left: 60%;
+  width: 40%;
+}
+
+#state-filter-container {
+  display: inline-block;
+  width: 100%;
+}
+
+#genre-filter-container {
+  display: inline-block;
+  width: 100%;
+  padding-top: 10px;
+}
+
+#pagination-container {
+  position: absolute;
+  justify-content: center;
+  bottom: 0;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+
+/* Set Active Table Head Element */
+#active-table-head {
+  border: 1px solid black;
+  border-left: 2pt solid black;
+  border-right: 2pt solid black;
+}
+
+/* Search Bar */
+#search {
+  width: 80%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th {
+  height: 20pt;
+}
+
+td {
+  display: table-cell;
+  height: 100pt;
+  word-wrap: break-word;
+}
+
+.th-hoverable:hover {
+  border: 1px solid black;
+  border-left: 2pt solid black;
+  border-right: 2pt solid black;
+}
+
+#table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+
+/* Table Entry Styles*/
+tr {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+
+
+/* Active CSS Elements */
+#active-pag-button {
+	background-color: #F0FFF0;
+	color: black;
+}
+
+select {
+  width: 100px;
+  margin: 10px;
+}
+
+/* Label Styles */
+.filter-label, #pagination-title {
+	display: inline;
+	padding: 10pt;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.filter-label {
+  margin-top: 10px;
+}
+
+	
