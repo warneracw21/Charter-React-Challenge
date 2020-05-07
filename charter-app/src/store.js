@@ -1,10 +1,12 @@
 import React from 'react';
 
-// Set up Contexts
+/////////////////////////////////////////////////
+// Set up Restaurant Store Contexts
+/////////////////////////////////////////////////
 const RestaurantStoreStateContext = React.createContext(null);
 const RestaurantStoreDispatchContext = React.createContext(null);
 
-const RestaurantContextProvider = ({children}) => {
+const RestaurantStoreProvider = ({children}) => {
 
 	// Define React Hook for getting and setting state
 	const [restaurantStoreState, restaurantStoreDispatch] = React.useReducer((state, action) => {
@@ -17,11 +19,14 @@ const RestaurantContextProvider = ({children}) => {
 				}
 				case 'success': {
 					console.log("Successfull Data Update")
-					return {...state, status: 'success', data: action.data};
+					return {...state, status: 'success', data: action.data, filtered: null};
 				}
 				case 'failure': {
 					console.log("Failure Data Update")
 					return {...state, status: 'failure'}
+				}
+				case 'update': {
+					return {...state, data: action.data}
 				}
 				default: {
 					return state;
@@ -57,5 +62,5 @@ const useRestaurantStoreDispatch = () => {
 	return context;
 }
 
-export { RestaurantContextProvider, useRestaurantStoreState, useRestaurantStoreDispatch }
+export { RestaurantStoreProvider, useRestaurantStoreState, useRestaurantStoreDispatch }
 
